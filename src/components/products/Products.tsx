@@ -9,7 +9,7 @@ const Products: FC = () =>{
         <div>
             {
                 products.map((product:IProductModel)=>(
-                    <Product item = {product}/>
+                    <Product key={product.id} item = {product}/>
                 ))
             }
         </div>

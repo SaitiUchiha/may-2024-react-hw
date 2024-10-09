@@ -1,5 +1,5 @@
 # lesson1 hw
-I will be doing my 1-st homework.
+I finished my 1-st homework.
 
 # Project location
 https://github.com/SaitiUchiha/may-2024-react-hw
@@ -15,8 +15,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
-
-# Dont forget to remove .idea files from git track.
-git rm .idea/ -r --cached
-git add -u .idea/
-git commit -m "Removed the .idea folder"
