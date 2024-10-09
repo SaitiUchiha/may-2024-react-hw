@@ -1,3 +1,6 @@
+# lesson1 hw
+I will be doing my 1-st homework.
+
 # Project location
 https://github.com/SaitiUchiha/may-2024-react-hw
 
