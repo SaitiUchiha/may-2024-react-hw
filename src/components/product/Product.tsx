@@ -27,11 +27,8 @@ const Product: FC<TypeProps> = ({item}) =>{
             <p>{item.warrantyInformation}</p>
             <p>{item.shippingInformation}</p>
             <p>{item.availabilityStatus}</p>
-            <h4>{item.reviews.map((array: IProdReviewsModel) => <span>{array.rating}</span>)}</h4>
-            <h4>{item.reviews.map((array: IProdReviewsModel) => <span>{array.reviewerName}</span>)}</h4>
-            <p>{item.reviews.map((array: IProdReviewsModel) => <span>{array.reviewerEmail}</span>)}</p>
-            <p>{item.reviews.map((array: IProdReviewsModel) => <span>{array.comment}</span>)}</p>
-            <p>{item.reviews.map((array: IProdReviewsModel) => <span>{array.date}</span>)}</p>
+            <p>{item.reviews.map((array: IProdReviewsModel) =>
+                <span><b>{array.rating}</b><br/> <b>{array.reviewerName}</b><br/> {array.reviewerEmail}<br/> {array.date}<br/> {array.comment}<br/><br/></span>)}</p>
             <p>{item.returnPolicy}</p>
             <p>{item.minimumOrderQuantity}</p>
             <p>{item.meta.barcode}</p>
