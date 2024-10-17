@@ -7,7 +7,7 @@ const Users:FC = () => {
 
 
     useEffect(() => {
-        getUsers().then(axiosResponse =>  console.log(axiosResponse));
+        getUsers().then(value =>  console.log(value));
 
     }, []);
 
