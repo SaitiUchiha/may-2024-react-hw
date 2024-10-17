@@ -2,11 +2,11 @@ import React, {FC, ReactNode} from "react";
 import IUser from "../models/IUser";
 import {Link} from "react-router-dom";
 
-type UserProps ={
+type UserProps = {
     item: IUser;
 }
 
-const User: FC<UserProps> = ({item}) => {
+const UserShort: FC<UserProps> = ({item}) => {
     return (
         <div>
             <Link to={item.id.toString()}><h2>{item.id} - {item.firstName} {item.maidenName} {item.lastName}
@@ -24,4 +24,4 @@ const User: FC<UserProps> = ({item}) => {
     )
 }
 
-export default User;
+export default UserShort;
