@@ -1,21 +1,15 @@
 import React, {FC, useEffect, useState} from 'react';
-import IUser from "../../models/IUser";
-import User from "../User/User";
+import IUser from "../models/IUser";
+import User from "../user/User";
 import {getUsers} from "../../services/api.services";
 
-type IUsersProps = {
-    clickHandler:(id:number) => void
-}
 
-const Users:FC<IUsersProps> = ({clickHandler}) => {
-
-    const [users, setUsers] = useState<IUser[]>([]);
+const Users:FC = () => {
 
 
 
     useEffect(() => {
-        getUsers()
-            .then(axiosResponse => setUsers(axiosResponse));
+        getUsers().then(axiosResponse =>  console.log(axiosResponse));
 
     }, []);
 
@@ -26,10 +20,7 @@ const Users:FC<IUsersProps> = ({clickHandler}) => {
 
     return (
         <div>
-            {
-                users.map((user: IUser, index) =>
-                    <User key={index} user={user} clickHandler={clickHandler}></User>)
-            }
+
 
         </div>
     );
