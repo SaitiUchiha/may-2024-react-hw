@@ -2,7 +2,7 @@ import React, {FC, useEffect} from 'react';
 import {getUsers} from "../../services/api.services";
 
 
-const Users:FC = () => {
+const UsersComponent:FC = () => {
 
 
 
@@ -21,4 +21,4 @@ const Users:FC = () => {
     );
 };
 
-export default Users;
+export default UsersComponent;
