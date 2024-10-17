@@ -6,7 +6,7 @@ import UserLong from "../components/user/UserLong";
 
 
 
-const UserFull:FC = () => {
+const UserFull = () => {
         let {id} = useParams();
         const [user, setUser] = useState<IUser| null>(null);
         useEffect(() => {
@@ -15,12 +15,15 @@ const UserFull:FC = () => {
                 }
         }, []);
   return (
-      <div>
-              {user.map((user: IUser, index) =>
-                  <UserLong obj={user}/>)}
-      </div>
-)
-        ;
+      // <div>
+      //         {user.map((user: IUser, index) =>
+      //             <UserLong obj={user}/>)}
+      //
+      //         <img src={user.image} alt={user.username}/>
+      // </div>
+      console.log(user)
+  )
+      ;
 };
 
 export default UserFull;
