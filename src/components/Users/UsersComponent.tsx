@@ -1,13 +1,15 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {getUsers} from "../../services/api.services";
+import IUser from "../models/IUser";
+import User from "../user/user";
 
 
 const UsersComponent:FC = () => {
 
-
+    const [users, setUsers] = useState<IUser[]>([]);
 
     useEffect(() => {
-        getUsers().then(value =>  console.log(value));
+        getUsers().then(value =>  setUsers(value));
 
     }, []);
 
@@ -15,8 +17,8 @@ const UsersComponent:FC = () => {
 
     return (
         <div>
-
-
+            {users.map((user: IUser, index) =>
+                <User key={index} item={user}></User>)}
         </div>
     );
 };
