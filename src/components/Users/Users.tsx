@@ -1,6 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
-import IUser from "../models/IUser";
-import User from "../user/User";
+import React, {FC, useEffect} from 'react';
 import {getUsers} from "../../services/api.services";
 
 
@@ -12,9 +10,6 @@ const Users:FC = () => {
         getUsers().then(axiosResponse =>  console.log(axiosResponse));
 
     }, []);
-
-
-
 
 
 
