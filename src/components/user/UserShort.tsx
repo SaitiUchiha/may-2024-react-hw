@@ -1,4 +1,4 @@
-import React, {FC, ReactNode} from "react";
+import React, {FC} from "react";
 import IUser from "../models/IUser";
 import {Link} from "react-router-dom";
 

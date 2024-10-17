@@ -1,7 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
 import {getUsers} from "../../services/api.services";
 import IUser from "../models/IUser";
-import User from "../user/UserShort";
 import UserShort from "../user/UserShort";
 
 

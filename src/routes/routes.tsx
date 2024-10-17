@@ -6,6 +6,9 @@ import Posts from "../pages/Posts";
 import HomePage from "../pages/HomePage";
 import Comments from "../pages/Comments";
 import UserFull from "../pages/UserFull";
+import PostsFullByID from "../pages/PostFullByID";
+import CommentFull from "../pages/CommentFull";
+
 
 export const routes = createBrowserRouter([
     {
@@ -14,7 +17,9 @@ export const routes = createBrowserRouter([
             {path:'users', element:<Users/>},
             {path:'users/:id', element: <UserFull/>},
             {path:'posts', element:<Posts/>},
-            {path:'comments', element:<Comments/>}
+            {path:'posts/:id', element:<PostsFullByID/>},
+            {path:'comments', element:<Comments/>},
+            {path:'comments/:id', element:<CommentFull/>}
         ],
         errorElement:<CustomErrorLayout/>
     },
