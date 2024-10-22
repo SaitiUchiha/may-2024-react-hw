@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
 
 export const apiService = {
     quotes: {
-        getAll: async (page:number): Promise<BaseResponceType & {quotes:IQuote[]}> => {
+        getAll: async (page:number): Promise<BaseResponceType & {quotes:IQuote[]; islastId:boolean}> => {
             const skip = (page-1)*30;
 
             const {data} = await axiosInstance.get<BaseResponceType & {quotes:IQuote[]}>('/quotes', {
@@ -16,7 +16,9 @@ export const apiService = {
                     skip: skip
                 }
             })
-            return data;
+            const lastId = data.quotes[data.quotes.length - 1].id;
+            const islastId = lastId>=data.total;
+            return {...data, islastId};
         }
     }
 }

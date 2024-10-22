@@ -18,10 +18,7 @@ const QuotesPage = () => {
                 .getAll(+page)
                 .then(value => {
                     setQuotes(value.quotes);
-                    const lastId = value.quotes[value.quotes.length - 1].id
-                    if (lastId >= value.total) {
-                        setFlag(true);
-                    } else setFlag(false);
+                    setFlag(value.islastId)
                 });
         }
 
