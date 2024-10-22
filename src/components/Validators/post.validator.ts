@@ -12,7 +12,8 @@ export const postValidator = Joi.object({
         "string.min": "password must be at least 3 characters",
         "string.max": "password must be no longer 300 characters",
     }),
-    userId: Joi.number().min(0).max(121).messages({
-        "number.min": "age must be at least 0",
+    userId: Joi.number().min(0).max(10).messages({
+        "number.min": "userId must be at least 0",
+        "number.max": "userId must be at most 10",
     }),
 })

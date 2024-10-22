@@ -2,13 +2,8 @@ import React from "react";
 import {useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
 import {postValidator} from "../Validators/post.validator";
-import axios from "axios";
-
-type FormProps = {
-    title: string;
-    body: string;
-    userId: number;
-}
+import {apiService} from "../../services/api.service";
+import {IFormProps} from "../../models/IFormProps";
 
 
 const FormComponent = () => {
@@ -21,18 +16,13 @@ const FormComponent = () => {
             isValid
         }
 
-    } = useForm<FormProps>({mode: 'all', resolver: joiResolver(postValidator)});
+    } = useForm<IFormProps>({mode: 'all', resolver: joiResolver(postValidator)});
 
-    const customHandler = (dataFromForm: FormProps) => {
-        console.log(dataFromForm);
-        axios
-            .post("https://jsonplaceholder.typicode.com/posts", dataFromForm)
-            .then((res) => {
-                console.log(res);
-            });
+    const handleOnSubmit =  async (dataFromForm: IFormProps) => {
+        console.log(await apiService.post.savePost(dataFromForm));
     };
     return (
-        <form onSubmit={handleSubmit(customHandler)}>
+        <form onSubmit={handleSubmit(handleOnSubmit)}>
             <div>
                 <label>
                     <input type="text" placeholder={'your title'} {...register('title')}/>
