@@ -13,9 +13,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### added axios & react-router-dom
+### added zustand
 
-# Dont forget to remove .idea files from git track.
-git rm .idea/ -r --cached
-git add -u .idea/
-git commit -m "Removed the .idea folder"
+# HomeWork
+Створити сторінку, в який буде меню з переходом на users posts comments урли. Кожна зі сторінок, під час переходу на неї, тягне з jasonplaceholder відповідну інформацію про юзерів/пости/комменти. Всі ці данні зберігаються в store.
+Зробити додаткову сторінку postsWithComments, на якій потрібно відтворити пости з їх комментарями. Данні для цого відображення НЕ ТГЯНУТИ З АПІ! а барти зі store`у
