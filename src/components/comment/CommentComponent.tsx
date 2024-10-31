@@ -1,5 +1,6 @@
 import React, {FC} from "react";
-import {IComment} from "../models/IComment";
+import {IComment} from "../../models/IComment";
+
 
 interface IPorps{
     comment:IComment
