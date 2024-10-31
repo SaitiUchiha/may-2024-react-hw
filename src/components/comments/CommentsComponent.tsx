@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {useStore} from "../../store";
 import {getComments} from "../../services/api.service";
 import {IComment} from "../../models/IComment";
-import CommentComponent from "../../comment/CommentComponent";
+import CommentComponent from "../comment/CommentComponent";
 
 
 const CommentsComponent = () => {
