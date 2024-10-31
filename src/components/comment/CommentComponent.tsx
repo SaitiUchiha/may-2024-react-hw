@@ -14,7 +14,6 @@ const CommentComponent:FC<IPorps> = ({comment}) => {
           <h3>{comment.email}</h3>
           <p>{comment.body}</p>
       </div>
-
   )
 }
 
