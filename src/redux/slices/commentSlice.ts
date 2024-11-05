@@ -23,8 +23,8 @@ export const commentSlice = createSlice({
         },
         removeComment: (state, action: PayloadAction<number>) => {
             let id = action.payload;
-            let comments = state.comments.splice(id - 1, 1);
-            state.comments = comments;
+            let comment = state.comments.splice(id - 1, 1);
+            state.comments = comment;
         }
     }
 });
