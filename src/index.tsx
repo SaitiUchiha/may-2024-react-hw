@@ -8,12 +8,11 @@ import {RouterProvider} from "react-router-dom";
 import {router} from "./routes/routes";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 root.render(
     <Provider store={store}>
-    <RouterProvider router={router}/>
-        <App/>
+        <RouterProvider router={router}/>
     </Provider>
 );
 
