@@ -20,6 +20,7 @@ let loadUsers = createAsyncThunk('userSlice/loadUsers', async (_, thunkAPI) => {
         return thunkAPI.rejectWithValue(e);
     }
 });
+
 let loadUser = createAsyncThunk('userSlice/loadUser', async (id: number, thunkAPI) => {
     try {
         let userFromApi = await getUser(id)
@@ -45,11 +46,11 @@ export const userSlice = createSlice({
             .addCase(loadUsers.fulfilled, (state, action: PayloadAction<IUser[]>) => {
                 state.users = action.payload;
             })
-            .addCase(loadUsers.rejected, (state, action: PayloadAction<any>) => {})
+            .addCase(loadUsers.rejected, (state, action: PayloadAction<any>) => {console.log(action.payload);})
             .addCase(loadUser.fulfilled, (state, action: PayloadAction<IUser>) => {
                 state.user = action.payload;
             })
-            .addCase(loadUser.rejected, (state, action: PayloadAction<any>) => {})
+            .addCase(loadUser.rejected, (state, action: PayloadAction<any>) => {console.log(action.payload);})
             .addMatcher(isRejected(loadUsers, loadUser), (state, action)=>{console.log(action.payload);})
 });
 export const {removeUser} = userSlice.actions;
