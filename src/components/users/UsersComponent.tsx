@@ -7,7 +7,7 @@ import {userSliceActions} from "../../redux/slices/userSlice";
 
 const UsersComponent = () => {
 
-    let {users, user} = useAppSelector(state => state.userSliceItself);
+    let {users,user} = useAppSelector(state => state.userSliceItself);
 
     let dispatch = useAppDispatch()
 
