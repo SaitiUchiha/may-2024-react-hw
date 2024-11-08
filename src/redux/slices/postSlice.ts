@@ -1,6 +1,7 @@
 import {IPost} from "../../models/IPost";
 import {createAsyncThunk, createSlice, isRejected, PayloadAction} from "@reduxjs/toolkit";
 import {getPosts} from "../../services/api.service";
+import {AxiosError} from "axios";
 
 type PostSliceType = {
     posts: IPost[],
@@ -36,7 +37,7 @@ export const postSlice = createSlice({
             .addCase(loadPosts.fulfilled, (state, action: PayloadAction<IPost[]>) => {
                 state.posts = action.payload;
             })
-            .addCase(loadPosts.rejected, (state, action: PayloadAction<any>) => {console.log(action.payload);})
+            .addCase(loadPosts.rejected, (state, action: PayloadAction<AxiosError|unknown>) => {console.log(action.payload);})
             .addMatcher(isRejected(loadPosts), (state, action)=>{console.log(action.payload);})
 });
 export let {removePost} = postSlice.actions;

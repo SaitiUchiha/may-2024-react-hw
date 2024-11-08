@@ -1,6 +1,7 @@
 import {IComment} from "../../models/IComment";
 import {createAsyncThunk, createSlice, isRejected, PayloadAction} from "@reduxjs/toolkit";
 import {getComments} from "../../services/api.service";
+import {AxiosError} from "axios";
 
 type CommentSliceType = {
     comments: IComment[],
@@ -36,7 +37,7 @@ export const commentSlice = createSlice({
             .addCase(loadComments.fulfilled, (state, action: PayloadAction<IComment[]>) => {
                 state.comments = action.payload;
             })
-            .addCase(loadComments.rejected, (state, action: PayloadAction<any>) => {console.log(action.payload);})
+            .addCase(loadComments.rejected, (state, action: PayloadAction<AxiosError|unknown>) => {console.log(action.payload);})
             .addMatcher(isRejected(loadComments), (state, action)=>{console.log(action.payload);})
 });
 export let {removeComment} = commentSlice.actions;

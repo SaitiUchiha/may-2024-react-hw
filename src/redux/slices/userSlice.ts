@@ -1,6 +1,7 @@
 import {IUser} from "../../models/IUser";
 import {createAsyncThunk, createSlice, isFulfilled, isRejected, PayloadAction} from "@reduxjs/toolkit";
 import {getUser, getUsers} from "../../services/api.service";
+import {AxiosError} from "axios";
 
 type UserSliceType = {
     users: IUser[],
@@ -46,11 +47,11 @@ export const userSlice = createSlice({
             .addCase(loadUsers.fulfilled, (state, action: PayloadAction<IUser[]>) => {
                 state.users = action.payload;
             })
-            .addCase(loadUsers.rejected, (state, action: PayloadAction<any>) => {console.log(action.payload);})
+            .addCase(loadUsers.rejected, (state, action: PayloadAction<AxiosError|unknown>) => {console.log(action.payload);})
             .addCase(loadUser.fulfilled, (state, action: PayloadAction<IUser>) => {
                 state.user = action.payload;
             })
-            .addCase(loadUser.rejected, (state, action: PayloadAction<any>) => {console.log(action.payload);})
+            .addCase(loadUser.rejected, (state, action: PayloadAction<AxiosError|unknown>) => {console.log(action.payload);})
             .addMatcher(isRejected(loadUsers, loadUser), (state, action)=>{console.log(action.payload);})
 });
 export const {removeUser} = userSlice.actions;
