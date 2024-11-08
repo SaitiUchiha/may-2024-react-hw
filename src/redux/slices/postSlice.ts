@@ -12,10 +12,10 @@ const postInitialState: PostSliceType = {
     post: null
 }
 
-let loadPosts = createAsyncThunk('userSlice/loadUsers', async (_, thunkAPI) => {
+let loadPosts = createAsyncThunk('postSlice/loadPosts', async (_, thunkAPI) => {
     try {
-        let usersFromApi = await getPosts()
-        return thunkAPI.fulfillWithValue(usersFromApi);
+        let postsFromApi = await getPosts()
+        return thunkAPI.fulfillWithValue(postsFromApi);
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
     }

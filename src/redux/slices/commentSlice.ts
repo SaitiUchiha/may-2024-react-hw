@@ -12,10 +12,10 @@ const commentInitialState: CommentSliceType = {
     comment: null
 }
 
-let loadComments = createAsyncThunk('userSlice/loadUsers', async (_, thunkAPI) => {
+let loadComments = createAsyncThunk('commentSlice/loadComments', async (_, thunkAPI) => {
     try {
-        let usersFromApi = await getComments()
-        return thunkAPI.fulfillWithValue(usersFromApi);
+        let commentsFromApi = await getComments()
+        return thunkAPI.fulfillWithValue(commentsFromApi);
     } catch (e) {
         return thunkAPI.rejectWithValue(e);
     }

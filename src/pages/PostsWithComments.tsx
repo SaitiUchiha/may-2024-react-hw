@@ -10,12 +10,15 @@ const PostsWithComments = () => {
 
 
     const [postWithCommentsState, setPostWithCommentsState] = useState<PostWithCommentsType[]>([]);
+    console.log(postSliceItself.posts);
+    console.log(commentSliceItself.comments);
 
     const postsWithCommentsArray = useMemo(() => {
         return postSliceItself.posts.map(post => {
-            return {...post, comments: commentSliceItself.comments.filter(comment => comment.postId === post.id)}
+            return {...post, comments: commentSliceItself.comments.filter(comment => comment.postId === post.id)};
+
         })
-    }, [commentSliceItself.comments, postSliceItself.posts]);
+    }, [postSliceItself, commentSliceItself]);
 
     useEffect(() => {
         setPostWithCommentsState(postsWithCommentsArray);
